@@ -1,0 +1,59 @@
+{
+    "users":[
+        {
+           "nazwa":"Tadeusz Woźniak",
+           "firma":"FHU Wozniak",
+           "nip":"4993205098",
+           "telefon1":"660495789",
+           "telefon2":"",
+           "email":"t.wozniak@gmail.com",
+           "kod":"75-727",
+           "miejscowosc":"Koszalin",
+           "adres":"Powstańców Wielkopolski 12"
+        },
+        {
+            "nazwa":"Tadeusz Kwiat",
+            "firma":"FHU Kwiat",
+            "nip":"",
+            "telefon1":"805698156",
+            "telefon2":"",
+            "email":"t.kwaiat@gmail.com",
+            "kod":"",
+            "miejscowosc":"",
+            "adres":""
+        },
+        {
+           "nazwa":"Tadeusz Zych",
+           "firma":"FHU Zych",
+           "nip":"",
+           "telefon1":"625500365",
+           "telefon2":"",
+           "email":"t.zych@gmail.com",
+           "kod":"75-727",
+           "miejscowosc":"Białogard",
+           "adres":"Chrzanowskiego 16/8"
+        },
+        {
+            "nazwa":"Tadeusz Maliszewski",
+            "firma":"FHU Maliszewski",
+            "nip":"",
+            "telefon1":"660495789",
+            "telefon2":"",
+            "email":"t.maliszewski@gmail.com",
+            "kod":"",
+            "miejscowosc":"",
+            "adres":""
+        },
+        {
+            "nazwa":"Tadeusz Małecki",
+            "firma":"FHU Małecki",
+            "nip":"",
+            "telefon1":"698226102",
+            "telefon2":"",
+            "email":"t.malecki@gmail.com",
+            "kod":"75-727",
+            "miejscowosc":"Białogard",
+            "adres":"Chrzanowskiego 16/9"
+        }
+]
+}
