@@ -3,6 +3,8 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls.Windows
 import QtQuick.Layouts
+import LG_GUI
+import Kernel
 
 ApplicationWindow {
     id: root

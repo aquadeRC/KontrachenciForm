@@ -9,60 +9,36 @@ find_package(Qt6 REQUIRED COMPONENTS Quick LinguistTools)
 
 qt_standard_project_setup(REQUIRES 6.8)
 
-qt_add_executable(appDialog 
+
+# Because modules are not in top folder//
+    set(QT_QML_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/)
+    set(QML_IMPORT_PATH ${QT_QML_OUTPUT_DIRECTORY}
+    CACHE STRING "Import paths for Qt Creator's code model"
+    FORCE
+    )
+# //
+
+add_subdirectory(Kernel)
+add_subdirectory(UI)
+
+
+qt_add_executable(app${PROJECT_NAME}
     main.cpp
     Resources.qrc
 )
 
-qt_add_qml_module(appDialog
-    URI Dialog
+qt_add_qml_module(app${PROJECT_NAME}
+    URI ${PROJECT_NAME}
     QML_FILES
         Main.qml
-        RESOURCES
-        QML_FILES Footer.qml
-        QML_FILES PersonPanel.qml
-        QML_FILES PersonDataPanel.qml
-        RESOURCES Resources.qrc
-        QML_FILES UserCombo.qml
-        SOURCES userdatamodel.h userdatamodel.cpp
-        SOURCES usernamefiltermodel.h usernamefiltermodel.cpp
-        SOURCES jsonwrapper.h jsonwrapper.cpp
-        SOURCES UserData.h
-        RESOURCES data/Userdata.json
-        RESOURCES Ikony/checklist.svg
-        RESOURCES Ikony/email.svg
-        RESOURCES Ikony/Files_has_not_found.png
-        RESOURCES Ikony/GlobeSearchNIP.svg
-        RESOURCES Ikony/Home.svg
-        RESOURCES Ikony/Info.svg
         RESOURCES Ikony/LogoIntegra.svg
-        RESOURCES Ikony/mobile-devices-iphone-call-phone.svg
-        RESOURCES Ikony/More.svg
-        RESOURCES Ikony/NIP.svg
-        RESOURCES Ikony/PenEdit2.svg
-        RESOURCES Ikony/PenEdit.svg
-        RESOURCES Ikony/Phones.svg
-        RESOURCES Ikony/plusadd.svg
-        RESOURCES Ikony/SearchLoupe.svg
-        RESOURCES Ikony/settingsgear.svg
-        RESOURCES Ikony/single-user.svg
-        RESOURCES Ikony/toolssettings.svg
-        RESOURCES Ikony/WindowClose.svg
-        RESOURCES Ikony/WindowMaximize.svg
-        RESOURCES Ikony/WindowMinimize.svg
-        QML_FILES UserComboDelegate.qml
-        SOURCES
-        QML_FILES NipCombo.qml
-        QML_FILES NipFoundBox.qml
-        QML_FILES NIpNotFoundBox.qml
-        QML_FILES FloatingTitle.qml
-        QML_FILES IconTextField.qml
+        RESOURCES data/Userdata.json
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
-set_target_properties(appDialog PROPERTIES
+set_target_properties(app${PROJECT_NAME} PROPERTIES
 #    MACOSX_BUNDLE_GUI_IDENTIFIER com.example.appDialog
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -70,12 +46,20 @@ set_target_properties(appDialog PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
-target_link_libraries(appDialog
+target_include_directories(app${PROJECT_NAME}
+    PUBLIC
+    Kernel
+    )
+
+target_link_libraries(app${PROJECT_NAME}
     PRIVATE Qt6::Quick
+    LG_GUI
+    Kernel
 )
 
+
 include(GNUInstallDirs)
-install(TARGETS appDialog
+install(TARGETS app${PROJECT_NAME}
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
@@ -96,3 +80,9 @@ add_custom_target(copy_data
     COMMENT "Copying users data"
 )
 add_dependencies(appDialog copy_data)
+
+qt_generate_deploy_qml_app_script(
+    TARGET app${PROJECT_NAME}
+    OUTPUT_SCRIPT deploy_script
+)
+install(SCRIPT ${deploy_script})

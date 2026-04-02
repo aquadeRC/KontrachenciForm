@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Ikony/checklist.svg</file>
+        <file>Ikony/Home.svg</file>
+        <file>Ikony/Info.svg</file>
+        <file>Ikony/More.svg</file>
+        <file>Ikony/NIP.svg</file>
+        <file>Ikony/Phones.svg</file>
+        <file>Ikony/single-user.svg</file>
+        <file>Ikony/WindowClose.svg</file>
+        <file>Ikony/WindowMaximize.svg</file>
+        <file>Ikony/WindowMinimize.svg</file>
+        <file>Ikony/email.svg</file>
+        <file>Ikony/Files_has_not_found.png</file>
+        <file>Ikony/GlobeSearchNIP.svg</file>
+        <file>Ikony/LogoIntegra.svg</file>
+        <file>Ikony/mobile-devices-iphone-call-phone.svg</file>
+        <file>Ikony/PenEdit.svg</file>
+        <file>Ikony/PenEdit2.svg</file>
+        <file>Ikony/plusadd.svg</file>
+        <file>Ikony/SearchLoupe.svg</file>
+        <file>Ikony/settingsgear.svg</file>
+        <file>Ikony/toolssettings.svg</file>
+    </qresource>
+</RCC>

@@ -1,8 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include "usernamefiltermodel.h"
-#include "userdatamodel.h"
+#include "Kernel/usernamefiltermodel.h"
+#include "Kernel/userdatamodel.h"
 #include <QIcon>
 
 
